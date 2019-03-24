@@ -4900,4 +4900,4 @@ bot.on('message', message => {
 
 });
 
-bot.login('NTU1NDY4NjM3MTE3NDgwOTYx.D2wBAQ.OAIwhBbcq4K_Wf9EOQLsLVqERmM');
+bot.login(process.env.TOKEN);
