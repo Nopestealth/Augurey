@@ -4869,6 +4869,42 @@ bot.on('message', message => {
         }
     }
 
+    if (cmd === `${sprefix}informations`) {
+        message.delete(1500);
+        let sUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+        if (!sUser) return message.author.send(`Vous n'avez pas mentionné de joueurs.`);
+
+        let informationsEmbed = new Discord.RichEmbed()
+        .setColor("#F781BE")
+        .setTitle(`Informations de ${sUser}`)
+        .setThumbnail(`https://image.noelshack.com/fichiers/2019/12/3/1553090684-le-mage-noir.png`)
+        .addField(`Nox`, spellData[sUser.id].nox)
+        .addField(`Lumos`, spellData[sUser.id].lumos)
+        .addField(`Accio`, spellData[sUser.id].accio)
+        .addField(`Expulso`, spellData[sUser.id].expulso)
+        .addField(`Repulso`, spellData[sUser.id].repulso)
+        .addField(`Oppugno`, spellData[sUser.id].oppugno)
+        .addField(`Protego`, spellData[sUser.id].protego)
+        .addField(`Acidious Strium`, spellData[sUser.id].acidious)
+        .addField(`Stupefix`, spellData[sUser.id].stupefix)
+        .addField(`Bloclang`, spellData[sUser.id].bloclang)
+        .addField(`Revigors`, spellData[sUser.id].revigors)
+        .addField(`Incendio`, spellData[sUser.id].incendio)
+        .addField(`Confringo`, spellData[sUser.id].confringo)
+        .addField(`Alohomora`, spellData[sUser.id].alohomora)
+        .addField(`Endoloris`, spellData[sUser.id].endoloris)
+        .addField(`Expelliarmus`, spellData[sUser.id].expelliarmus)
+        .addField(`Rictus Sempra`, spellData[sUser.id].rictus)
+        .addField(`Avada Kedavra`, spellData[sUser.id].avadakedavra)
+        .addField(`Expecto Patronum`, spellData[sUser.id].patronum)
+        .addField(`Finite Incantatem`, spellData[sUser.id].finite)
+        .addField(`Petrificus Totalus`, spellData[sUser.id].petrificust)
+        .addField(`Wingardium Leviosa`, spellData[sUser.id].wingardium)
+
+        if (message.member.roles.get('554205242242236417')) {
+            message.channel.send(informationsEmbed)
+        }
+    }
     if (message.content === prefix + "givem") {
         message.delete(1500);
         let sUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
@@ -4900,4 +4936,4 @@ bot.on('message', message => {
 
 });
 
-bot.login(process.env.TOKEN);
+bot.login(`NDQxMzAzNTUyNDg1MzU5NjQ2.D3tb9Q.XXtuycwz4x0bVwxFc4ttfydBpH0`);
