@@ -4870,7 +4870,6 @@ bot.on('message', message => {
     }
 
     if (cmd === `${sprefix}informations`) {
-        message.delete(1500);
         let sUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if (!sUser) return message.author.send(`Vous n'avez pas mentionné de joueurs.`);
 
@@ -4936,4 +4935,4 @@ bot.on('message', message => {
 
 });
 
-bot.login(`NDQxMzAzNTUyNDg1MzU5NjQ2.D3tb9Q.XXtuycwz4x0bVwxFc4ttfydBpH0`);
+bot.login(process.env.TOKEN);
