@@ -277,7 +277,7 @@ bot.on('message', message => {
     
     if (cmd === `${prefix}proposition`) {
         message.delete(1500);
-        if (message.channel.id === `565974252595970048`) {
+        if (message.channel.id === `567059724143558668`) {
             let sProposition = args.join(" ").slice(0);
             if (!sProposition) return message.author.send(`Vous n'avez précisé aucune proposition, merci d'en entrer une.`)
 
