@@ -9,6 +9,12 @@ bot.on('ready', () => {
     console.log(`Je suis Connecté :`);
 });
 
+bot.on('guildMemberAdd',  member => {
+    member.send(`Bienvenue ${member} sur l'Augurey-Roleplay. Si tu as rejoins notre Communauté, c'est sûrement pour Roleplay, alors laisse moi t'expliquer comment ton inscription va se dérouler. Tu dois te rendre dans #fiches-personnages, où tu pourra t'inscrire. Tu recevra une réponse avant 48h. J'espère avoir pu t'aider.`);
+    var role = member.guild.roles.find('name', 'Nouveau');
+    member.addRole(role);
+})
+
 bot.on('message', message => {
     let prefix = "!"
     let messageArray = message.content.split(" ");
@@ -524,4 +530,4 @@ bot.on('message', message => {
 
 });
 
-bot.login(process.env.TOKEN);
+bot.login('NTUzMjY4NDM3MjU4OTkzNzA1.XKHyqw.yTb3nRSuY1VpEwbBGDwDL-sT3Is');
