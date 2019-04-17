@@ -21,43 +21,47 @@ bot.on('message', message => {
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
 
-    if (cmd === `${prefix}kick`) {
-        let sUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-        if (!sUser) return message.author.send(`Vous n'avez pas mentionné de joueurs.`);
-        let sRaison = args.join(" ").slice(22);
-
-        let kickEmbed = new Discord.RichEmbed()
-        .setDescription("~Kick~")
-        .setColor("#e56b00")
-        .addField("Utilisateur Exlue", `${sUser}`)
-        .addField("Exlue par", `${message.author.username}`)
-        .addField("Raison", sRaison)
-
-        let logsChannel = message.guild.channels.find(`name`, "logs");
-        
+        if (cmd === `${prefix}kick`) {
         if (message.member.roles.get('554205242242236417')) {
-            message.guild.member(sUser).kick(sRaison);  
-            logsChannel.send(kickEmbed);      
+            let sUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+            if (!sUser) return message.author.send(`Vous n'avez pas mentionné de joueurs.`);
+            let sRaison = args.join(" ").slice(22);
+
+            let kickEmbed = new Discord.RichEmbed()
+            .setDescription("~Kick~")
+            .setColor("#e56b00")
+            .addField("Utilisateur Exlue", `${sUser}`)
+            .addField("Exlue par", `${message.author.username}`)
+            .addField("Raison", sRaison)
+
+            let logsChannel = message.guild.channels.find(`name`, "logs");
+        
+            if (message.member.roles.get('554205242242236417')) {
+                message.guild.member(sUser).kick(sRaison);  
+                logsChannel.send(kickEmbed);
+            }
         }
     } 
 
     if (cmd === `${prefix}ban`) {
-        let sUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-        if (!sUser) return message.author.send(`Vous n'avez pas mentionné de joueurs.`);
-        let sRaison = args.join(" ").slice(22);
-
-        let banEmbed = new Discord.RichEmbed()
-        .setDescription("~Ban~")
-        .setColor("#e56b00")
-        .addField("Utilisateur Banni", `${sUser}`)
-        .addField("Banni par", `${message.author.username}`)
-        .addField("Raison", sRaison)
-
-        let logsChannel = message.guild.channels.find(`name`, "logs");
-
         if (message.member.roles.get('554205242242236417')) {
-            message.guild.member(sUser).ban(sRaison)
-            logsChannel.send(banEmbed);
+            let sUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+            if (!sUser) return message.author.send(`Vous n'avez pas mentionné de joueurs.`);
+            let sRaison = args.join(" ").slice(22);
+
+            let banEmbed = new Discord.RichEmbed()
+            .setDescription("~Ban~")
+            .setColor("#e56b00")
+            .addField("Utilisateur Banni", `${sUser}`)
+            .addField("Banni par", `${message.author.username}`)
+            .addField("Raison", sRaison)
+
+            let logsChannel = message.guild.channels.find(`name`, "logs");
+
+            if (message.member.roles.get('554205242242236417')) {
+                message.guild.member(sUser).ban(sRaison)
+                logsChannel.send(banEmbed);
+            }
         }
     }
 
