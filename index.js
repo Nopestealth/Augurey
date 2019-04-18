@@ -21,6 +21,15 @@ bot.on('message', message => {
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
 
+    if (cmd === `${prefix}purge`) {
+        if (message.member.roles.get('554205242242236417')) {
+            const amount = parseInt(args[0]);
+            if (!amount) return message.author.send(`Vous n'avez pas précisé le nombre de messages à supprimer.`);
+
+            message.channel.bulkDelete(amount)
+        }
+    }
+	
         if (cmd === `${prefix}kick`) {
         if (message.member.roles.get('554205242242236417')) {
             let sUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
